@@ -19,8 +19,8 @@ body {
     border: 3px solid #ff69b4;
     border-radius: 10px;
     padding: 20px;
-    width: 300px;
-    max-width: 90%; /* Ensure card width scales down on smaller screens */
+    width: 90vw; /* Responsive width */
+    max-width: 600px; /* Maximum width for larger screens */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease-in-out, opacity 0.5s ease;
     margin: auto; /* Center card */
@@ -41,7 +41,7 @@ body {
     background-color: #fff;
     border: 2px solid #ff69b4;
     border-radius: 8px;
-    padding: 15px 30px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -57,14 +57,15 @@ body {
     justify-content: center; /* Center images horizontally */
     gap: 10px; /* Space between images */
     margin-top: 15px; /* Add space between text and images */
-    flex-wrap: nowrap; /* Prevent wrapping; all images stay on the same line */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     width: 100%; /* Ensure the gallery takes up the full width available */
 }
 
-/* Styling for each image in the gallery */
+/* Responsive styling for images */
 .photo-gallery img {
-    width: 240px; /* Increased width to make images bigger */
-    height: 240px; /* Increased height to make images bigger */
+    width: 22vw; /* Responsive size based on viewport width */
+    max-width: 150px; /* Cap image size on larger screens */
+    height: auto; /* Maintain aspect ratio */
     object-fit: cover; /* Ensure images cover the box proportionally */
     flex-shrink: 0; /* Prevent shrinking of images */
 }
@@ -78,4 +79,25 @@ body {
 #card p {
     font-size: 1.2em;
     color: #333;
+}
+
+/* Media queries for smaller screens */
+@media (max-width: 600px) {
+    #playButton {
+        font-size: 1.2em;
+        padding: 10px 15px;
+    }
+
+    #card h1 {
+        font-size: 1.8em;
+    }
+
+    #card p {
+        font-size: 1em;
+    }
+
+    .photo-gallery img {
+        width: 45vw; /* Larger relative size for smaller screens */
+        max-width: 120px; /* Cap image size */
+    }
 }

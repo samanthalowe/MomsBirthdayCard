@@ -7,6 +7,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #ffcccb; /* Light pink background */
+    flex-direction: column; /* Stack the button and card vertically */
 }
 
 /* Style for the card */
@@ -23,7 +24,7 @@ body {
     max-width: 400px; /* Limit card width for smaller screens */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease-in-out, opacity 0.5s ease;
-    margin: auto; /* Center card */
+    margin: 20px auto; /* Center card with some margin */
     opacity: 0; /* Initially hidden */
     transform: scale(0.9); /* Slightly scaled down */
 }
@@ -36,15 +37,16 @@ body {
 
 /* Styling for the button */
 #playButton {
-    font-size: 1.2em;
+    font-size: 1.5em;
     color: #ff69b4;
     background-color: #fff;
     border: 2px solid #ff69b4;
     border-radius: 8px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Space between button and card */
+    text-align: center;
 }
 
 #playButton:hover {
@@ -83,25 +85,4 @@ body {
     color: #333;
     padding: 0 10px;
     text-align: center; /* Center-align text */
-}
-
-/* Media queries for very small screens */
-@media (max-width: 500px) {
-    #playButton {
-        font-size: 1em;
-        padding: 8px 12px;
-    }
-
-    #card h1 {
-        font-size: 1.5em;
-    }
-
-    #card p {
-        font-size: 0.9em;
-    }
-
-    .photo-gallery img {
-        width: 24vw; /* Increase width slightly for mobile */
-        max-width: 80px; /* Cap image size smaller */
-    }
 }

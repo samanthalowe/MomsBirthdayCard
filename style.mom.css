@@ -1,38 +1,21 @@
 /* Center the entire body and use flexbox */
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #ffcccb; /* Light pink background */
-    flex-direction: column; /* Stack the button and card vertically */
 }
 
-/* Style for the card */
-#card {
-    display: flex; /* Use flexbox layout */
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
-    background-color: #ffebcd;
-    border: 3px solid #ff69b4;
-    border-radius: 10px;
-    padding: 15px;
-    width: 85vw; /* Responsive width */
-    max-width: 400px; /* Limit card width for smaller screens */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
-    margin: 20px auto; /* Center card with some margin */
-    opacity: 0; /* Initially hidden */
-    transform: scale(0.9); /* Slightly scaled down */
-}
-
-/* When the card is shown, apply the animation */
-#card.animate {
-    opacity: 1;
-    transform: scale(1); /* Full scale when shown */
+/* Center the button using a container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 15px; /* Space between button and card */
 }
 
 /* Styling for the button */
@@ -45,7 +28,6 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-bottom: 15px; /* Space between button and card */
     text-align: center;
 }
 
@@ -54,27 +36,48 @@ body {
     color: white;
 }
 
+/* Style for the card */
+#card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffebcd;
+    border: 3px solid #ff69b4;
+    border-radius: 10px;
+    padding: 15px;
+    width: 85vw;
+    max-width: 400px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease;
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.9); /* Slightly scaled down */
+}
+
+#card.animate {
+    opacity: 1;
+    transform: scale(1); /* Full scale when shown */
+}
+
 /* Styling for the photo gallery */
 .photo-gallery {
-    display: flex; /* Use flexbox to lay out items in a row */
-    justify-content: center; /* Center images horizontally */
-    gap: 8px; /* Space between images */
-    margin-top: 10px; /* Add space between text and images */
-    flex-wrap: nowrap; /* Keep images in one row */
-    overflow-x: auto; /* Enable horizontal scroll for smaller screens */
-    width: 100%; /* Ensure the gallery takes up full width available */
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
 }
 
-/* Responsive styling for images */
 .photo-gallery img {
-    width: 20vw; /* Smaller responsive size based on viewport width */
-    max-width: 90px; /* Cap image size */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover; /* Ensure images cover the box proportionally */
-    flex-shrink: 0; /* Prevent shrinking of images */
+    width: 20vw;
+    max-width: 90px;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
-/* Styling for the card content */
 #card h1 {
     font-size: 1.8em;
     color: #ff69b4;
@@ -84,5 +87,25 @@ body {
     font-size: 1em;
     color: #333;
     padding: 0 10px;
-    text-align: center; /* Center-align text */
+    text-align: center;
+}
+
+@media (max-width: 500px) {
+    #playButton {
+        font-size: 1em;
+        padding: 8px 12px;
+    }
+
+    #card h1 {
+        font-size: 1.5em;
+    }
+
+    #card p {
+        font-size: 0.9em;
+    }
+
+    .photo-gallery img {
+        width: 24vw;
+        max-width: 80px;
+    }
 }
